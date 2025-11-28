@@ -1,8 +1,50 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Card */
+  --card-height: 245px;
+  --card-width: 188px;
+
+  /* Parte inferior negra */
+  --card-bottom-height: 56px;
+  --card-bottom-pt: 16px;
+  --card-bottom-pr: 16px;
+  --card-bottom-pb: 24px;
+  --card-bottom-pl: 16px;
+
+  /* Barra roja */
+  --card-bar-height: 6px;
+  --card-bar-color: #ec1d24;
+  --card-anim-time: 300ms;
+
+  /* Imagen: altura = total - bottom */
+  --card-image-height: calc(var(--card-height) - var(--card-bottom-height));
+}
+
+.hero-bar {
+  height: var(--card-bar-height);
+  background-color: var(--card-bar-color);
+  transition: height var(--card-anim-time) ease-out;
+}
+
+.group:hover .hero-bar {
+  height: 100%;
+}
+
+.hero-bar {
+  height: var(--card-bar-height);
+  background-color: var(--card-bar-color);
+  transition: height var(--card-anim-time) ease-out;
+}
+
+/* Al hacer hover en la card (.group), la barra roja baja hasta ocupar todo */
+.group:hover .hero-bar {
+  height: 100%;
 }
 
 @theme inline {
@@ -16,6 +58,26 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ffffff;
   }
 }
 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { SuperHeroInterface } from "@/types/superheroInterface";
 import { useState } from "react";
+import "@/styles/hero-card.scss";
 
 interface HeroCardProps {
   hero: SuperHeroInterface;
@@ -21,65 +22,32 @@ export default function HeroCard({ hero }: HeroCardProps) {
         bg-white
         shadow-sm
         overflow-hidden
+        hero-card
       "
-      style={{
-        width: "var(--card-width)",
-        height: "var(--card-height)",
-      }}
     >
-      {/* IMAGEN (LINK A DETALLE) */}
+      {/* IMAGE (LINK TO DETAIL) */}
       <Link
         href={`/characters/${hero.id}`}
-        className="block flex-shrink-0"
-        style={{ height: "var(--card-image-height)" }}
+        className="block flex-shrink-0 hero-card__image"
       >
-        <figure className="m-0 w-full h-full overflow-hidden bg-gray-100">
-          <img
-            src={imageUrl}
-            alt={name}
-            className="w-full h-full object-cover block"
-            loading="lazy"
-          />
+        <figure className="m-0 w-full h-full bg-gray-100">
+          <img src={imageUrl} alt={name} loading="lazy" />
         </figure>
       </Link>
 
       {/* FOOTER CARD */}
-      <footer
-        className="relative flex-shrink-0 overflow-hidden bg-black"
-        style={{ height: "var(--card-bottom-height)" }}
-      >
+      <footer className="hero-card__footer">
         <span className="hero-bar absolute inset-x-0 top-0" />
 
-        <div
-          className="
-            relative flex items-start justify-between h-full
-            uppercase tracking-wide text-white text-xs
-          "
-          style={{
-            paddingTop: "var(--card-bottom-pt)",
-            paddingRight: "var(--card-bottom-pr)",
-            paddingBottom: "var(--card-bottom-pb)",
-            paddingLeft: "var(--card-bottom-pl)",
-          }}
-        >
+        <div className="relative flex items-start justify-between h-full uppercase tracking-wide text-white text-xs">
           <Link href={`/characters/${hero.id}`} className="flex-1">
-            <h2
-              className="truncate font-light m-0"
-              style={{
-                fontFamily: '"Roboto Condensed", sans-serif',
-                fontSize: "14px",
-                lineHeight: "1.2",
-              }}
-            >
-              {name}
-            </h2>
+            <h2 className="truncate hero-card__name">{name}</h2>
           </Link>
 
-          {/* Favoritos */}
+          {/* Favs */}
           <button
             type="button"
-            aria-label={isFav ? "Quitar de favoritos" : "Añadir a favoritos"}
-            className="ml-2 flex items-center cursor-pointer relative w-4 h-4"
+            className="hero-card__fav"
             onClick={(e) => {
               e.stopPropagation();
               setIsFav((prev) => !prev);
@@ -87,23 +55,26 @@ export default function HeroCard({ hero }: HeroCardProps) {
           >
             {isFav ? (
               <>
+                {/* red NO hover*/}
                 <img
                   src="/fav_default.svg"
-                  alt=""
+                  alt="favorite icon selected"
                   aria-hidden="true"
-                  className="absolute inset-0 w-4 h-4 transition-opacity duration-150 group-hover:opacity-0"
+                  className="hero-card__fav-icon hero-card__fav-icon--red"
                 />
+                {/* white on hover */}
                 <img
                   src="/fav_white.svg"
-                  alt=""
+                  alt="favorite icon selected"
                   aria-hidden="true"
-                  className="absolute inset-0 w-4 h-4 opacity-0 transition-opacity duration-150 group-hover:opacity-100"
+                  className="hero-card__fav-icon hero-card__fav-icon--white"
                 />
               </>
             ) : (
+              // NO fav
               <img
                 src="/fav_unselected.svg"
-                alt=""
+                alt="favorite icon unselected"
                 aria-hidden="true"
                 className="w-4 h-4"
               />

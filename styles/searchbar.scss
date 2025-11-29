@@ -1,0 +1,61 @@
+.searchbar-wrapper {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* Barra de búsqueda */
+.searchbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid black;
+  padding: 8px 4px;
+}
+
+.searchbar__icon {
+  opacity: 0.7;
+}
+
+.searchbar__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #333;
+}
+
+.searchbar__input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Texto "50 RESULTS" */
+.searchbar__results {
+  margin-top: 6px;
+  margin-bottom: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchbar {
+    padding: 6px 2px;
+  }
+
+  .searchbar__input {
+    font-size: 13px;
+  }
+
+  .searchbar__results {
+    font-size: 9px;
+  }
+}

@@ -1,6 +1,7 @@
 import HeroCard from "@/components/HeroCard";
-import { get50Heroes } from "@/lib/superheroApi";
 import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
+import { get50Heroes } from "@/lib/superheroApi";
 
 export const dynamic = "force-dynamic";
 
@@ -11,9 +12,7 @@ export default async function HomePage() {
     <>
       <Header />
       <main className="px-3 md:px-6 py-8 mx-auto">
-        <section className="mb-6">
-          <p className="text-gray-600 mt-1">{heroes.length} Resuls</p>
-        </section>
+        <SearchBar totalResults={heroes.length} />
 
         <section
           className="

@@ -1,8 +1,9 @@
 /* Hero card */
 .hero-card {
-  width: var(--card-width);
-  height: var(--card-height);
+  width: 100%;
+  display: block;
   position: relative;
+  box-sizing: border-box;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -14,7 +15,8 @@
 
 /* Image */
 .hero-card__image {
-  height: var(--card-image-height);
+  width: 100%;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
@@ -27,7 +29,7 @@
 
 /* Footer Card*/
 .hero-card__footer {
-  height: var(--card-bottom-height);
+  height: auto;
   padding: var(--card-bottom-pt) var(--card-bottom-pr) var(--card-bottom-pb)
     var(--card-bottom-pl);
   background: #000;

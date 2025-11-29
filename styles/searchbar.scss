@@ -3,7 +3,7 @@
   margin-bottom: 12px;
 }
 
-/* Barra de búsqueda */
+/* SearchBar */
 .searchbar {
   width: 100%;
   display: flex;
@@ -34,7 +34,7 @@
   opacity: 1;
 }
 
-/* Texto "50 RESULTS" */
+/* Text Results */
 .searchbar__results {
   margin-top: 6px;
   margin-bottom: 0;
@@ -57,5 +57,11 @@
 
   .searchbar__results {
     font-size: 9px;
+  }
+}
+
+@media (min-width: 768px) {
+  .searchbar-wrapper {
+    padding: 1em;
   }
 }

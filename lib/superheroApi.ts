@@ -3,18 +3,13 @@ import type { SuperHeroInterface } from "@/types/superheroInterface";
 const url = process.env.SUPERHERO_API_BASEURL;
 
 /**
- * Devuelve 50 héroes aleatorios usando sort + Math.random
+ * Returns ALL heroes from /all.json
  */
-export async function get50Heroes(): Promise<SuperHeroInterface[]> {
+export async function getHeroes(): Promise<SuperHeroInterface[]> {
   try {
     const res = await fetch(`${url}/all.json`);
     const data: SuperHeroInterface[] = await res.json();
-
-    //Buscamos aleatoriamente para que no sean siempre los héroes con A
-    const shuffled = data.sort(() => Math.random() - 0.5);
-
-    // Devolver 50
-    return shuffled.slice(0, 50);
+    return data;
   } catch (e) {
     console.error(e);
     throw new Error("Error fetching superheroes");
@@ -22,27 +17,7 @@ export async function get50Heroes(): Promise<SuperHeroInterface[]> {
 }
 
 /**
- * Busca héroes por nombre > endpoint /all.json
- */
-export async function searchHeroesByName(
-  name: string
-): Promise<SuperHeroInterface[]> {
-  const term = name.trim().toLowerCase();
-  if (!term) return [];
-
-  try {
-    const res = await fetch(`${url}/all.json`);
-    const data: SuperHeroInterface[] = await res.json();
-
-    return data.filter((hero) => hero.name.toLowerCase().includes(term));
-  } catch (e) {
-    console.error(e);
-    throw new Error("Error fetching superhero by name");
-  }
-}
-
-/**
- * Obtiene el detalle de un héroe por id > endpoint /id/{id}.json
+ * Returns detailed data for a single hero by ID
  */
 export async function getHeroById(
   id: string | number
@@ -51,12 +26,8 @@ export async function getHeroById(
 
   try {
     const res = await fetch(`${url}/id/${numericId}.json`);
-
-    if (!res.ok) {
-      throw new Error("Error fetching superhero detail");
-    }
-
     const hero: SuperHeroInterface = await res.json();
+
     return hero;
   } catch (e) {
     throw new Error("Error fetching superhero by id");

@@ -2,8 +2,13 @@
 
 import Link from "next/link";
 import type { SuperHeroInterface } from "@/types/superheroInterface";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "@/styles/hero-card.scss";
+import {
+  isFavorite,
+  toggleFavorite,
+  subscribeFavorites,
+} from "@/utils/storage";
 
 interface HeroCardProps {
   hero: SuperHeroInterface;
@@ -13,6 +18,15 @@ export default function HeroCard({ hero }: HeroCardProps) {
   const name = hero.name ?? "Unknown Hero";
   const imageUrl = hero.images?.lg ?? hero.images?.md;
   const [isFav, setIsFav] = useState(false);
+
+  // initialize and react to global favorites changes
+  useEffect(() => {
+    setIsFav(isFavorite(hero.id));
+    const unsub = subscribeFavorites((favs) => {
+      setIsFav(favs.includes(String(hero.id)));
+    });
+    return unsub;
+  }, [hero.id]);
 
   return (
     <article
@@ -50,7 +64,7 @@ export default function HeroCard({ hero }: HeroCardProps) {
             className="hero-card__fav"
             onClick={(e) => {
               e.stopPropagation();
-              setIsFav((prev) => !prev);
+              toggleFavorite(hero.id);
             }}
           >
             {isFav ? (

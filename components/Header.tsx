@@ -1,7 +1,22 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { subscribeFavorites, getFavorites } from "@/utils/storage";
 import "@/styles/header.scss";
 
 export default function Header() {
+  const [favoritesCount, setFavoritesCount] = useState<number>(
+    () => getFavorites().length
+  );
+
+  useEffect(() => {
+    const unsub = subscribeFavorites((favs) => {
+      setFavoritesCount(favs.length);
+    });
+    return unsub;
+  }, []);
+
   return (
     <header className="main-header">
       <div className="main-header__inner">
@@ -24,7 +39,7 @@ export default function Header() {
             width={18}
             height={18}
           />
-          <span className="main-header__fav-count">3</span>
+          <span className="main-header__fav-count">{favoritesCount}</span>
         </div>
       </div>
     </header>

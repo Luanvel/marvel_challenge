@@ -40,7 +40,7 @@ export default function HeroesList({
       />
 
       <div className="hero-wrapper">
-        {/* Cards grid, full-width so images can determine sizing */}
+        {/* Cards grid */}
         <section className="w-full px-2 sm:px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-9 gap-x-4 gap-y-4">
           {filteredHeroes.map((hero) => (
             <HeroCard key={hero.id} hero={hero} />

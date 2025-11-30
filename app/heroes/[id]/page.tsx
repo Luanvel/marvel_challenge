@@ -43,7 +43,7 @@ export default async function HeroDetailPage({ params }: HeroDetailPageProps) {
       <section className="detail-banner">
         <div className="detail-banner__content mx-auto max-w-[960px] flex flex-col md:flex-row gap-6 md:gap-10 md:px-0">
           {/* Character image (left) */}
-          <div className="detail-banner__image-wrapper -mx-3 md:mx-0">
+          <div className="detail-banner__image-wrapper md:mx-0">
             <img
               src={mainImage}
               alt={hero.name}

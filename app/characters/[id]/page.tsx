@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getHeroes } from "@/lib/superheroApi";
 import type { SuperHeroInterface } from "@/types/superheroInterface";
 import Header from "@/components/Header";
+import DetailFavoriteButton from "@/components/DetailFavoriteButton";
 import "@/styles/detail.scss";
 
 interface CharacterPageProps {
@@ -65,18 +66,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
               </div>
 
               {/* Favorite icon */}
-              <button
-                type="button"
-                aria-label="Favorite button"
-                className="detail-banner__fav-btn mt-1"
-              >
-                <Image
-                  src="/fav_unselected.svg"
-                  alt="favorite"
-                  width={24}
-                  height={22}
-                />
-              </button>
+              <DetailFavoriteButton heroId={hero.id} />
             </div>
 
             {/* Description */}

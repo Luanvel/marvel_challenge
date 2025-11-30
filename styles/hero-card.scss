@@ -86,3 +86,19 @@
     opacity: 1;
   }
 }
+
+.hero-bar {
+  height: var(--card-bar-height);
+  background-color: var(--color-marvel-red);
+  transition: height var(--card-anim-time) ease-out;
+}
+
+.group:hover .hero-bar {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .group:hover .hero-bar {
+    height: var(--card-bar-height);
+  }
+}

@@ -113,3 +113,16 @@
   text-transform: uppercase;
   overflow: hidden;
 }
+
+/* TABLET horizontal margin for the banner content */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .detail-banner__content {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+
+  .detail-comics > div {
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+}

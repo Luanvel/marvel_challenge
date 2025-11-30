@@ -105,7 +105,7 @@ export default async function HeroDetailPage({ params }: HeroDetailPageProps) {
                 md:[&::-webkit-scrollbar]:block
                 md:[&::-webkit-scrollbar]:h-[6px]
                 md:[&::-webkit-scrollbar-track]:bg-[#f2f2f2]
-                md:[&::-webkit-scrollbar-thumb]:bg-[#e62429]
+                md:[&::-webkit-scrollbar-thumb]:bg-[var(--color-marvel-red)]
               "
             >
               <div className="detail-comics__list flex gap-4 min-w-max mb-14">

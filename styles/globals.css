@@ -17,39 +17,19 @@
 
   /* Card red bar */
   --card-bar-height: 6px;
-  --card-bar-color: #ec1d24;
   --card-anim-time: 300ms;
 
   /* Image height */
   --card-image-height: calc(var(--card-height) - var(--card-bottom-height));
+
+  /* Colors */
+  --color-marvel-red: #ec1d24;
 }
 
 @media (max-width: 768px) {
   :root {
     --card-width: 172px;
   }
-}
-
-.hero-bar {
-  height: var(--card-bar-height);
-  background-color: var(--card-bar-color);
-  transition: height var(--card-anim-time) ease-out;
-}
-
-.group:hover .hero-bar {
-  height: 100%;
-}
-
-@media (max-width: 768px) {
-  .group:hover .hero-bar {
-    height: var(--card-bar-height);
-  }
-}
-
-.hero-bar {
-  height: var(--card-bar-height);
-  background-color: var(--card-bar-color);
-  transition: height var(--card-anim-time) ease-out;
 }
 
 @theme inline {

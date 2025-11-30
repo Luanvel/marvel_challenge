@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { subscribeFavorites, getFavorites } from "@/utils/storage";
@@ -20,15 +21,16 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="main-header__inner">
-        {/* LOGO MARVEL */}
         <div className="main-header__logo">
-          <Image
-            src="/marvel_logo.svg"
-            alt="Marvel Logo"
-            width={130}
-            height={52}
-            priority
-          />
+          <Link href="/" aria-label="Go to home">
+            <Image
+              src="/marvel_logo.svg"
+              alt="Marvel Logo"
+              width={130}
+              height={52}
+              priority
+            />
+          </Link>
         </div>
 
         {/* FAVORITES COUNTER */}

@@ -2,6 +2,9 @@
   width: 100%;
   height: 84px;
   background: black;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .main-header__inner {

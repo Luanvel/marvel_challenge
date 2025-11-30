@@ -7,13 +7,13 @@ import Header from "@/components/Header";
 import DetailFavoriteButton from "@/components/DetailFavoriteButton";
 import "@/styles/detail.scss";
 
-interface CharacterPageProps {
+interface HeroDetailPageProps {
   params: Promise<{
     id: string;
   }>;
 }
 
-export default async function CharacterPage({ params }: CharacterPageProps) {
+export default async function HeroDetailPage({ params }: HeroDetailPageProps) {
   const { id } = await params;
 
   const heroes: SuperHeroInterface[] = await getHeroes();
@@ -113,7 +113,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
                   return (
                     <Link
                       key={hero.id}
-                      href={`/characters/${hero.id}`}
+                      href={`/heroes/${hero.id}`}
                       className="detail-comics__card block w-[178px] h-[268] flex-shrink-0"
                     >
                       <div className="detail-comics__card-image-wrapper">

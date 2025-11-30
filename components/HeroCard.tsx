@@ -41,7 +41,7 @@ export default function HeroCard({ hero }: HeroCardProps) {
     >
       {/* IMAGE (LINK TO DETAIL) */}
       <Link
-        href={`/characters/${hero.id}`}
+        href={`/heroes/${hero.id}`}
         className="block flex-shrink-0 hero-card__image"
       >
         <figure className="m-0 w-full h-full bg-gray-100">
@@ -54,7 +54,7 @@ export default function HeroCard({ hero }: HeroCardProps) {
         <span className="hero-bar absolute inset-x-0 top-0" />
 
         <div className="relative flex items-start justify-between h-full uppercase tracking-wide text-white text-xs">
-          <Link href={`/characters/${hero.id}`} className="flex-1">
+          <Link href={`/heroes/${hero.id}`} className="flex-1">
             <h2 className="truncate hero-card__name">{name}</h2>
           </Link>
 

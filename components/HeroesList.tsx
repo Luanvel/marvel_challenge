@@ -8,23 +8,24 @@ import "@/styles/hero-list.scss";
 
 interface HeroesListProps {
   heroes: SuperHeroInterface[];
+  initialRandomHeroes?: SuperHeroInterface[];
 }
 
-export default function HeroesList({ heroes }: HeroesListProps) {
+export default function HeroesList({
+  heroes,
+  initialRandomHeroes,
+}: HeroesListProps) {
   const [query, setQuery] = useState("");
 
-  // Initial 50 random heroes
-  const initialRandomHeroes = useMemo(() => {
-    const shuffled = [...heroes].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 50);
-  }, [heroes]);
+  // If server provided an initialRandomHeroes use it, otherwise fallback to slice of heroes
+  const initial50 = initialRandomHeroes ?? heroes.slice(0, 50);
 
   // Filter logic:
   // - no search query -> 50 random heroes
   // - search query -> all heroes matching the name
   const filteredHeroes = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return initialRandomHeroes;
+    if (!q) return initial50;
 
     return heroes.filter((hero) => hero.name?.toLowerCase().includes(q));
   }, [heroes, query, initialRandomHeroes]);

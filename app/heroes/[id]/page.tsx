@@ -5,7 +5,7 @@ import { getHeroes } from "@/lib/superheroApi";
 import type { SuperHeroInterface } from "@/types/superheroInterface";
 import Header from "@/components/Header";
 import DetailFavoriteButton from "@/components/DetailFavoriteButton";
-import "@/styles/detail.scss";
+import "@/styles/hero-detail.scss";
 
 interface HeroDetailPageProps {
   params: Promise<{
@@ -37,7 +37,9 @@ export default async function HeroDetailPage({ params }: HeroDetailPageProps) {
 
   return (
     <main className="detail-page">
-      <Header />
+      <div className="header-with-border">
+        <Header />
+      </div>
 
       {/* BLACK BANNER */}
       <section className="detail-banner">

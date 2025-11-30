@@ -7,6 +7,14 @@
   color: #000;
 }
 
+.detail-page .main-header {
+  border-bottom: 1px solid #333;
+
+  @media (max-width: 768px) {
+    border-bottom: none;
+  }
+}
+
 /* ===== DETAIL BANNER ===== */
 .detail-banner {
   background-color: #000;

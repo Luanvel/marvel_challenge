@@ -21,6 +21,7 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="main-header__inner">
+        {/* LOGO MARVEL > HOME */}
         <div className="main-header__logo">
           <Link href="/" aria-label="Go to home">
             <Image
@@ -33,8 +34,12 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* FAVORITES COUNTER */}
-        <div className="main-header__favorites">
+        {/* FAVORITES COUNTER > FAVORITES */}
+        <Link
+          href="/favorites"
+          aria-label="Go to favorites"
+          className="main-header__favorites"
+        >
           <Image
             src="/fav_default.svg"
             alt="Favorites"
@@ -42,7 +47,7 @@ export default function Header() {
             height={18}
           />
           <span className="main-header__fav-count">{favoritesCount}</span>
-        </div>
+        </Link>
       </div>
     </header>
   );

@@ -17,7 +17,7 @@ export default function HeroesList({
 }: HeroesListProps) {
   const [query, setQuery] = useState("");
 
-  // If server provided an initialRandomHeroes use it, otherwise fallback to slice of heroes
+  // If server provided an initialRandomHeroes we use it, otherwise fallback to slice of heroes
   const initial50 = initialRandomHeroes ?? heroes.slice(0, 50);
 
   // Filter logic:

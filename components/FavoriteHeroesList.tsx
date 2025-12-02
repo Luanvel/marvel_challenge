@@ -25,8 +25,6 @@ export default function HeroesList({ heroes }: HeroesListProps) {
     return unsub;
   }, []);
 
-  // Show heroes whose id is in favorites
-  // Optional search by name (query)
   const favoriteHeroesList = useMemo(() => {
     const q = query.trim().toLowerCase();
 

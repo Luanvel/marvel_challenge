@@ -181,6 +181,5 @@ npm run test:watch   # Watch mode
 
 ### Important!!
 
-- **Favorites** are stored locally in `localStorage`
-- Does not sync across tabs automatically, only frontend here :)
+- **Favorites** are stored locally in `localStorage`, only frontend here :)
 - In development, some browser extensions can cause hydration warnings — incognito mode is recommended

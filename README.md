@@ -155,7 +155,7 @@ marvel-challenge/
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Run tests
 
@@ -170,7 +170,9 @@ npm run test:watch   # Watch mode
 - Framework: **Jest** + **React Testing Library**
 - Mocks: `@/utils/storage`, `next/image`, `next/link`
 
-### Design
+---
+
+## Design
 
 - The design was created by BEMOBILE, originally designed for a Marvel Heroes app
 - All the design is responsive and can be accessed through desktop, tablets or mobile phones

@@ -2,7 +2,7 @@
 
 Web application to explore and manage heroes favorites. Built with **Next.js 15 (REACT)**, **Tailwind CSS**, and **Jest** for testing.
 
-This application is deployed at Vercel. Click here('http://localhost:3000') and try it!
+This application is deployed at Vercel. Click [here(https://marvel-challenge-smoky.vercel.app/] and try it!
 
 ---
 
